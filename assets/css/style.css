@@ -1,0 +1,99 @@
+.nav-bg {
+  background-color: cadetblue !important;
+  width: 100%;
+}
+
+.nav-link.text-white {
+  color: rgb(0, 0, 0) !important;
+}
+
+.nav-link.text-white:hover {
+  color: #e2eaeb !important;
+}
+
+.error-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.search-book-container {
+  display: flex;
+  gap: 5px;
+}
+
+.card-container {
+  display: flex;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-form{
+    width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card:hover{
+    box-shadow: 0 2px 4px rgb(97, 145, 142);
+    cursor: pointer;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.img-size {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.card-subtitle {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.title-container{
+    display: flex;
+    margin: 10 0;
+    justify-content: center
+}
+
+.images-container{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-container{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
