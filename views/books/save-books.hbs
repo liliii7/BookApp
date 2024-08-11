@@ -1,0 +1,71 @@
+<div class="row form-series">
+  <div class="col-12 col-sm-6 offset-sm-3">
+    <div class="card-form border-success">
+      <div class="card-body" id="main-container">
+        <form enctype="multipart/form-data" method="POST" action="/bookshop/{{#if editMode}}edit-book{{else}}add-book{{/if}}">
+          <div class="mb-3">
+            <label for="name" class="form-label">Book Name</label>
+            <input type="text" {{#if editMode}} value="{{book.bookName}}" {{/if}} class="form-control" id="bookName" name="BookName" required/>
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Book Year</label>
+            <input type="text" {{#if editMode}} value="{{book.year}}" {{/if}} class="form-control" id="bookYear" name="BookYear" required/>
+          </div>
+
+           <div class="mb-3">
+            <label for="image-file" class="form-label">Selecciona una imagen</label>
+            <input type="file" class="form-control" id="image-file" name="Image" {{#if editMode}}{{else}}required{{/if}}/>
+          </div>
+
+          <div class="mb-3">
+            <label for="category" class="form-label">Categories</label>
+            <select id="select-category" class="form-select" name="Category" aria-label="Default select example" required>
+               {{#if editMode}}
+              <option value="{{book.category.dataValues.categoryId}}" selected>{{book.category.dataValues.categoryName}}</option>
+                {{else}}
+                {{#each categories}}
+                <option value="{{this.categoryId}}">{{this.categoryName}}</option>
+              {{/each}}
+                {{/if}}
+          
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <select id="select-author" class="form-select" name="Author" aria-label="Default select example" required>
+               {{#if editMode}}
+              <option value="{{book.author.dataValues.authorId}}" selected>{{book.author.dataValues.authorName}}</option>
+                {{else}}
+                {{#each authors}}
+                <option value="{{this.authorId}}">{{this.authorName}}</option>
+              {{/each}}
+                {{/if}}
+            
+            </select>
+          </div>
+
+           <div class="mb-3">
+            <label for="editorial" class="form-label">Editorials</label>
+            <select id="select-editorial" class="form-select" name="Editorial" aria-label="Default select example" required>
+               {{#if editMode}}
+              <option value="{{book.editorial.dataValues.editorialId}}" selected>{{book.editorial.dataValues.editorialName}}</option>
+                {{else}}
+                 {{#each editorials}}
+                <option value="{{this.editorialId}}">{{this.editorialName}}</option>
+              {{/each}}
+                {{/if}}
+            </select>
+          </div>
+
+          {{#if editMode}}
+          <input type="hidden" value="{{book.bookId}}" name="BookId">
+          {{/if}}
+          <button type="submit" class="btn btn-outline-info float-end">{{#if editMode}}update{{else}}Save{{/if}}</button>
+          <a href="/bookshop/books-page" class="btn btn-outline-warning float-end me-2">Back</a>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>

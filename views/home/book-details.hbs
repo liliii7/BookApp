@@ -1,0 +1,26 @@
+<div class="mb-3 search-container">
+    <label for="title" class="form-label">Details</label>
+</div>
+ {{#if hasBooks}}
+  <div class="row">
+      <div class="card-container">
+        <div class="card">
+          <img
+            src="{{book.imagePath}}"
+            class="card-img-top img-size"
+            alt="..."
+          />
+          <div class="card-body home-card">
+            <h5 class="card-title">{{book.bookName}} - {{book.year}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Category: <br>{{book.category.dataValues.categoryName}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Author: <br> {{book.author.dataValues.authorName}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Info Editorial: <br>{{book.editorial.dataValues.editorialName}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">-Country: <br>{{book.editorial.dataValues.country}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">-Phone: <br> {{book.editorial.dataValues.phone}}</h6>
+          </div>
+        </div>
+      </div>
+  </div>
+{{else}}
+  <h1>No books found!</h1>
+{{/if}}

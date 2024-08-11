@@ -1,0 +1,24 @@
+<div class="row form-series">
+  <div class="col-12 col-sm-6 offset-sm-3">
+    <div class="card-form border-success">
+      <div class="card-body" id="main-container">
+        <form method="POST" action="/bookshop/{{#if editMode}}edit-category{{else}}add-category{{/if}}">
+          <div class="mb-3">
+            <label for="name" class="form-label">Category Name:</label>
+            <input type="text" {{#if editMode}} value="{{category.categoryName}}" {{/if}} class="form-control" id="categoryName" name="CategoryName" required/>
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea class="form-control" id="description" name="Description" required>{{#if editMode}}{{category.description}}{{/if}}</textarea>
+          </div>
+          {{#if editMode}}
+          <input type="hidden" value="{{category.categoryId}}" name="CategoryId">
+          {{/if}}
+          <button type="submit" class="btn btn-outline-info float-end">{{#if editMode}}update{{else}}Save{{/if}}</button>
+          <a href="/bookshop/categories-page" class="btn btn-outline-warning float-end me-2">Back</a>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>

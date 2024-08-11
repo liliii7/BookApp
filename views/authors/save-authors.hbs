@@ -1,0 +1,25 @@
+<div class="row form-series">
+  <div class="col-12 col-sm-6 offset-sm-3">
+    <div class="card-form border-success">
+      <div class="card-body" id="main-container">
+        <form method="POST" action="/bookshop/{{#if editMode}}edit-author{{else}}add-author{{/if}}">
+          <div class="mb-3">
+            <label for="name" class="form-label">Author Name:</label>
+            <input type="text" {{#if editMode}} value="{{author.authorName}}" {{/if}} class="form-control" id="authorName" name="AuthorName" required/>
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Author Email:</label>
+            <input type="text" {{#if editMode}} value="{{author.email}}" {{/if}} class="form-control" id="email" name="Email" required/>
+          </div>
+      
+          {{#if editMode}}
+          <input type="hidden" value="{{author.authorId}}" name="AuthorId">
+          {{/if}}
+          <button type="submit" class="btn btn-outline-info float-end">{{#if editMode}}update{{else}}Save{{/if}}</button>
+          <a href="/bookshop/authors-page" class="btn btn-outline-warning float-end me-2">Back</a>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>

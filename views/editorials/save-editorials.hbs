@@ -1,0 +1,28 @@
+<div class="row form-series">
+  <div class="col-12 col-sm-6 offset-sm-3">
+    <div class="card-form border-success">
+      <div class="card-body" id="main-container">
+        <form method="POST" action="/bookshop/{{#if editMode}}edit-editorial{{else}}add-editorial{{/if}}">
+          <div class="mb-3">
+            <label for="name" class="form-label">Editorial Name:</label>
+            <input type="text" {{#if editMode}} value="{{editorial.editorialName}}" {{/if}} class="form-control" id="editorialName" name="EditorialName" required/>
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Editorial Phone:</label>
+            <input type="text" {{#if editMode}} value="{{editorial.phone}}" {{/if}} class="form-control" id="phone" name="Phone" required/>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Editorial Country:</label>
+            <input type="text" {{#if editMode}} value="{{editorial.country}}" {{/if}} class="form-control" id="country" name="Country" required/>
+          </div>
+          {{#if editMode}}
+          <input type="hidden" value="{{editorial.editorialId}}" name="EditorialId">
+          {{/if}}
+          <button type="submit" class="btn btn-outline-info float-end">{{#if editMode}}update{{else}}Save{{/if}}</button>
+          <a href="/bookshop/editorials-page" class="btn btn-outline-warning float-end me-2">Back</a>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>

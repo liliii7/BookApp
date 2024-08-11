@@ -1,0 +1,30 @@
+{{#if hasAuthors}}
+  <div class="title-container">
+      <a href="/bookshop/add-author" class="btn btn-outline-secondary">+ New Author</a>
+  </div>
+  <div class="images-container">
+    {{#each aut}}
+      <div class="card-container">
+        <div class="card">
+          <div class="card-body home-card">
+            <h5 class="card-title">{{this.authorName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Email: {{this.email}}</h6>
+            <h6 class="card-subtitle mb-2 text">Books: {{this.bookCount}}</h6> 
+
+            <div class="btn-container">
+              <form method="get" action="/bookshop/edit-author/{{this.authorId}}" class="form-edit">
+                <button type="submit" class="btn btn-outline-secondary">Edit</button>
+              </form>
+              <form method="post" action="/bookshop/delete-author" class="form-delete">
+                <input type="hidden" value="{{this.authorId}}" name="AuthorId" />
+                <button type="submit" class="btn btn-outline-secondary btn-delete">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <h1>No editorials found!</h1>
+{{/if}}

@@ -1,0 +1,53 @@
+<div class="mb-3 search-container">
+  <label for="title" class="form-label">Search a Book</label>
+  <form action="/bookshop/search-by-name" method="GET">
+    <div class="search-book-container">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter a book"
+        name="SearchValue"
+        aria-describedby="search-btn"
+      />
+      <button type="submit" id="search-btn" class="btn btn-outline-dark float-end">Search</button>
+    </div>
+  </form>
+  <div class="mb-3 search-container">
+  <label for="title" class="form-label">Search for a Book by Category (Seleccione las categorias con el cursor arrastrandolo y de click a search)</label>
+  <form action="/bookshop/search-by-category" method="GET">
+    <div class="search-book-container">
+      <select multiple id="select-category" class="form-select" name="CategoryId[]" aria-label="Default select example">
+        {{#each categories}}
+          <option value="{{this.categoryId}}">{{this.categoryName}}</option>
+        {{/each}}
+      </select>
+      <button type="submit" id="search-btn" class="btn btn-outline-dark float-end">Search</button>
+    </div>
+  </form>
+</div>
+    <label for="title" class="form-label">Click the image book for the details!</label>
+  {{#if hasBooks}}
+  <div class="images-container">
+    {{#each bks}}
+      <div class="card-container">
+        <div class="card">
+          <a href="/bookshop/book-details/{{this.bookId}}">
+          <img
+            src="{{this.imagePath}}"
+            class="card-img-top img-size"
+            alt="..."
+          />
+          </a>
+          <div class="card-body home-card">
+            <h5 class="card-title">{{this.bookName}} - {{this.year}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Category: {{this.category.dataValues.categoryName}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Author: {{this.author.dataValues.authorName}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Editorial: {{this.editorial.dataValues.editorialName}}</h6>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <h1>No books found!</h1>
+{{/if}}
